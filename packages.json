@@ -1,0 +1,17 @@
+{
+  "distributor_id": "Arch",
+  "dependencies": {
+    "Git": {
+      "cmd": "git",
+      "version": "latest",
+      "Arch": "git",
+      "Debian": "git"
+    },
+    "JSON Query utility for Bash": {
+      "cmd": "jq",
+      "version": "latest",
+      "Arch": "jq",
+      "Debian": "jq"
+    }
+  }
+}
