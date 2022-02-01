@@ -7,21 +7,21 @@ fi
 
 # Global variables. Dynamically manipulated vars can be omitted, but are there for
 # readability
-PACKAGES_CONFIG="packages.json"
+cwd="$(pwd)"
+PACKAGES_CONFIG="$cwd/packages.json"
 DISTRO_ID="" # This is dynamically manipulated by the below section
 PACKAGE_MANAGER=""
 INSTALL_PACKAGES=""
-SEARCH_PACKAGES=""
 
 ######################################################################################
 # This section assigns values to global variabes                                     #
 ######################################################################################
 
-command -v "jq" &>/dev/null || { printf "Missing dependency: JSON Query package\n" &&
+command -v "jq" &>/dev/null || { printf "Missing dependency: jq\n" &&
     exit 1; }
-DISTRO_ID="$(jq -r '.distributor_id' "$PACKAGES_CONFIG")" || { printf "Could not resolve the distribution ID"; exit 1; }
-PACKAGE_MANAGER="$(jq -r ".package_manager | .$DISTRO_ID" "$PACKAGES_CONFIG")" || { printf "Could not resolve package manager "; exit 1; }
-INSTALL_PACKAGES="$(jq -r ".package_install | .$DISTRO_ID" "$PACKAGES_CONFIG")" || { printf "Could not resolve package manager install argument"; exit 1; }
+DISTRO_ID="$(jq -r '.distributor_id' "$PACKAGES_CONFIG")" || { printf "Could not resolve the distribution ID\n"; exit 1; }
+PACKAGE_MANAGER="$(jq -r ".package_manager | .$DISTRO_ID" "$PACKAGES_CONFIG")" || { printf "Could not resolve package manager\n"; exit 1; }
+INSTALL_PACKAGES="$(jq -r ".package_install | .$DISTRO_ID" "$PACKAGES_CONFIG")" || { printf "Could not resolve package manager install argument\n"; exit 1; }
 
 # Checks that none of the below variables are null
 null_vars=(

@@ -1,5 +1,5 @@
 {
-  "distributor_id": "Arch",
+  "distributor_id": "",
   "package_manager": {
     "Arch": "pacman",
     "Debian": "apt-get"
@@ -8,34 +8,12 @@
     "Arch": "-S",
     "Debian": "install"
   },
-  "package_search": {
-    "Arch": "-Qet",
-    "Debian": "search"
-  },
   "dependencies": {
     "Git": {
       "cmd": "git",
       "version": "latest",
       "Arch": "git",
       "Debian": "git"
-    },
-    "JSON Query": {
-      "cmd": "jq",
-      "version": "latest",
-      "Arch": "jq",
-      "Debian": "jq"
-    },
-    "Nano": {
-      "cmd": "nano",
-      "version": "latest",
-      "Arch": "nano",
-      "Debian": "nano"
-    },
-    "Vim": {
-      "cmd": "Vim",
-      "version": "latest",
-      "Arch": "vim",
-      "Debian": "vim"
     }
   }
 }
