@@ -7,8 +7,7 @@ fi
 
 # Global variables. Dynamically manipulated vars can be omitted, but are there for
 # readability
-cwd="$(pwd)"
-PACKAGES_CONFIG="$cwd/packages.json"
+PACKAGES_CONFIG="$(dirname "$0")/packages.json"
 DISTRO_ID="" # This is dynamically manipulated by the below section
 PACKAGE_MANAGER=""
 INSTALL_PACKAGES=""
