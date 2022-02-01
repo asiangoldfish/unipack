@@ -10,7 +10,7 @@ git clone https://github.com/asiangoldfish/unipack.git
 
 The project includes two files: a JSON file "packages.json" and a Bash script "unipack.sh". "packages.json" has similar structure to Node's "package.json" file, but is intended for manual customization to suit your needs. This is where you manage your project's dependencies.
 
-**package.json**
+**packages.json**
 ```JSON
 {
   "distributor_id": "",
