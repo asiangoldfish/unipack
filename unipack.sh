@@ -7,7 +7,7 @@ fi
 
 # Global variables. Dynamically manipulated vars can be omitted, but are there for
 # readability
-PACKAGES_CONFIG="$(dirname "$0")/packages.json"
+PACKAGES_CONFIG=$(dirname "${BASH_SOURCE[0]}")/packages.json
 DISTRO_ID="" # This is dynamically manipulated by the below section
 PACKAGE_MANAGER=""
 INSTALL_PACKAGES=""
@@ -15,6 +15,8 @@ INSTALL_PACKAGES=""
 ######################################################################################
 # This section assigns values to global variabes                                     #
 ######################################################################################
+
+if ! [ -f "$PACKAGES_CONFIG" ]; then printf "Could not find packages.json\n"; exit 1; fi
 
 command -v "jq" &>/dev/null || { printf "Missing dependency: jq\n" &&
     exit 1; }
