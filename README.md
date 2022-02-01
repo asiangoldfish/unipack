@@ -55,6 +55,13 @@ This script manages the dependencies listed in "packages.json". It has a single 
 - `--clear`: Clears the terminal upon execution
 Unipack heavily depends on [jq](https://stedolan.github.io/jq/) to parse JSON objects and manipulate keys. If this is not installed on the system, "unipack.sh" will return an error and terminate.
 
+To integrate the script into your own project, simply store its path to a variable and then source it when needed.
+```Bash
+# This assumes that the unipack project is in your project's root directory
+unipack=$(dirname "${BASH_SOURCE[0]}")/unipack/unipack.sh
+source unipack
+```
+
 ## Contribution
 Simply fork the repository and make a pull request. Otherwise; bugs or suggestions can be raised [here](https://github.com/asiangoldfish/unipack/issues).
 
