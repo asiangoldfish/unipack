@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "Git": {
-      "cmd": "git",
-      "version": "latest",
       "Arch": "git",
       "Debian": "git"
     }
