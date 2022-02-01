@@ -1,5 +1,17 @@
 {
   "distributor_id": "Arch",
+  "package_manager": {
+    "Arch": "pacman",
+    "Debian": "apt-get"
+  },
+  "package_install": {
+    "Arch": "-S",
+    "Debian": "install"
+  },
+  "package_search": {
+    "Arch": "-Qet",
+    "Debian": "search"
+  },
   "dependencies": {
     "Git": {
       "cmd": "git",
@@ -7,11 +19,23 @@
       "Arch": "git",
       "Debian": "git"
     },
-    "JSON Query utility for Bash": {
+    "JSON Query": {
       "cmd": "jq",
       "version": "latest",
       "Arch": "jq",
       "Debian": "jq"
+    },
+    "Nano": {
+      "cmd": "nano",
+      "version": "latest",
+      "Arch": "nano",
+      "Debian": "nano"
+    },
+    "Vim": {
+      "cmd": "Vim",
+      "version": "latest",
+      "Arch": "vim",
+      "Debian": "vim"
     }
   }
 }
