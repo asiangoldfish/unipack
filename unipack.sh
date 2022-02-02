@@ -1,9 +1,16 @@
 #!/usr/bin/bash
 
-# Development: Clears the console upon running this script
-if [[ $1 == "--clear" ]]; then
-    clear
-fi
+VERSION="1.0.0"
+
+case $1 in
+    "--clear")
+        clear
+        ;;
+    "--version")
+        printf "%s\n" "$VERSION"
+        exit 0
+        ;;
+esac
 
 # Global variables. Dynamically manipulated vars can be omitted, but are there for
 # readability
