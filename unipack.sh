@@ -13,7 +13,7 @@ case $1 in
     "--reset-id")
         command -v "jq" &>/dev/null || { printf "Missing dependency: jq\n" &&
         exit 1; }
-        jq -r '.distributor_id = ""' $(dirname "${BASH_SOURCE[0]}")/packages.json
+        jq -r '.distributor_id = ""' "$(dirname "${BASH_SOURCE[0]}")"/packages.json
 	
 esac
 
