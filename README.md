@@ -53,7 +53,9 @@ The project includes two files: a JSON file "packages.json" and a Bash script "u
 
 This script manages the dependencies listed in "packages.json". It has a single flag that is meant to be used only for development.  
 
-- `--clear`: Clears the terminal upon execution  
+- `--clear`: Clears the terminal upon execution
+- `--version`: Prints version number to screen
+- `--reset-id`: Resets `distributor_id` in "packages.json"
 
 Unipack heavily depends on [jq](https://stedolan.github.io/jq/) to parse JSON objects and manipulate keys. If this is not installed on the system, "unipack.sh" will return an error and terminate.  
 

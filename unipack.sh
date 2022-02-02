@@ -10,6 +10,11 @@ case $1 in
         printf "%s\n" "$VERSION"
         exit 0
         ;;
+    "--reset-id")
+        command -v "jq" &>/dev/null || { printf "Missing dependency: jq\n" &&
+        exit 1; }
+        jq -r '.distributor_id = ""' $(dirname "${BASH_SOURCE[0]}")/packages.json
+	
 esac
 
 # Global variables. Dynamically manipulated vars can be omitted, but are there for
@@ -26,8 +31,7 @@ INSTALL_PACKAGES=""
 # Checks if packages.json exists
 if ! [ -f "$PACKAGES_CONFIG" ]; then printf "Could not find packages.json\n"; exit 1; fi
 
-command -v "jq" &>/dev/null || { printf "Missing dependency: jq\n" &&
-    exit 1; }
+command -v "jq" &>/dev/null || { printf "Missing dependency: jq\n" && exit 1; }
 DISTRO_ID="$(jq -r '.distributor_id' "$PACKAGES_CONFIG")" || { printf "Could not resolve the distribution ID\n"; exit 1; }
 PACKAGE_MANAGER="$(jq -r ".package_manager | .$DISTRO_ID" "$PACKAGES_CONFIG")" || { printf "Could not resolve package manager\n"; exit 1; }
 INSTALL_PACKAGES="$(jq -r ".package_install | .$DISTRO_ID" "$PACKAGES_CONFIG")" || { printf "Could not resolve package manager install argument\n"; exit 1; }
