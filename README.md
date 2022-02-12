@@ -1,4 +1,6 @@
-# Universal Packager for Bash Scripts
+# About
+
+***This project is still in development. There are bugs that prevents the program from working as intended.***
 
 Unipack is a script that helps managing packages across multiple Linux distributions and package managers. It's a small contribution to try solving the frustration that Linux developers have when writing applications across multiple distributions.
 
